@@ -3,7 +3,7 @@
  * @module view/search/insight
  */
 const { Component, Fragment } = require('inferno');
-const { cacheComponent } = require('../../util/cache');
+const { cacheComponent } = require('hexo-component-inferno/lib/util/cache');
 
 /**
  * Algolia search engine JSX component.
@@ -36,11 +36,18 @@ class Insight extends Component {
                         <div class="searchbox-input-container">
                             <input type="text" class="searchbox-input" placeholder={translation.hint}/>
                         </div>
+                        <div class="searchbox-pinyin">
+                            <label class="checkbox">
+                                <input id="search-by-pinyin" type="checkbox" checked="checked"/>
+                                <span>&nbsp;拼音检索</span>
+                            </label>
+                        </div>
                         <a class="searchbox-close" href="javascript:;">&times;</a>
                     </div>
                     <div class="searchbox-body"></div>
                 </div>
             </div>
+            <script src="/js/imaegoo/pinyin.js" defer={true}></script>
             <script src={jsUrl} defer={true}></script>
             <script dangerouslySetInnerHTML={{ __html: js }}></script>
         </Fragment>;
